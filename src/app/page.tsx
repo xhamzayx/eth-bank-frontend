@@ -16,7 +16,8 @@ import type { Address } from "viem";
 export default function Home() {
   const [txType, setTxType] = useState<"deposit" | "withdraw" | null>(null);
   const [amount, setAmount] = useState("");
-
+  const contractExplorerUrl =
+  "https://sepolia.etherscan.io/address/0x38a4B1E4ffFD8Cb2a2815e9A388CCCBd136813E7";
 const {
   writeContract,
   data: hash,
@@ -119,6 +120,15 @@ const explorerTxUrl = hash
       <h1 className="text-3xl font-bold">ETH Bank dApp</h1>
 
       <ConnectButton />
+
+                <a
+        href={contractExplorerUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 underline text-sm"
+      >
+        View Bank Contract on Etherscan ↗
+      </a>
 
       {isConnected && (
         <>
